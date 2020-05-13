@@ -46,10 +46,10 @@ namespace CarShopConsoleApp
 
             Console.WriteLine("\n0 - Quit\n");
 
-            return GetMenuSelection(menu);
+            return GetMenuSelection(menu.Count);
         }
 
-        static int GetMenuSelection(List<string> menu)
+        static int GetMenuSelection(int maxItems)
         {
             bool isInt;
             int choice;
@@ -59,12 +59,12 @@ namespace CarShopConsoleApp
                 Console.Write("Please choose an option: ");
                 isInt = int.TryParse(Console.ReadLine(), out choice);
 
-                if (!isInt || choice > menu.Count)
+                if (!isInt || choice > maxItems)
                 {
                     Console.WriteLine("\nInvalid selection. Please try again.\n");
                 }
 
-            } while (isInt != true || choice > menu.Count);
+            } while (isInt != true || choice > maxItems);
 
             return choice;
         }
