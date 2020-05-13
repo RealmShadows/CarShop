@@ -12,7 +12,10 @@ namespace CarShopClassLibrary
         {
             Console.Clear();
 
-            ListInventory();
+            if (Inventory.Count > 0)
+            {
+                ListInventory();
+            }
 
             Car car = new Car
             {
@@ -28,8 +31,6 @@ namespace CarShopClassLibrary
 
         private void ListInventory()
         {
-            if (Inventory.Count > 0)
-            {
                 Console.WriteLine("List of current inventory items: \n");
 
                 var carCount = 1;
@@ -40,7 +41,6 @@ namespace CarShopClassLibrary
                 }
 
                 Console.WriteLine();
-            }
         }
     }
 }
